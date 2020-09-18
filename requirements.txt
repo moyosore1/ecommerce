@@ -46,7 +46,6 @@ service-identity==18.1.0
 six==1.15.0
 sqlparse==0.3.1
 toml==0.10.1
-Twisted @ file:///C:/Users/Moyosore/projects/socialmedia/Twisted-20.3.0-cp38-cp38-win_amd64.whl
 txaio==20.4.1
 urllib3==1.25.10
 virtualenv==20.0.28

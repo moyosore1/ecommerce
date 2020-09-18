@@ -1,1 +1,1 @@
-web: gunicorn msecommerce-wsgi --log-file -
+web: gunicorn msecommerce.wsgi --log-file -

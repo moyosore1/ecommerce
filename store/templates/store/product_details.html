@@ -1,0 +1,136 @@
+{% extends 'store/base_template.html' %}
+{% load static %}
+
+{% block title%} {{product.product_name.title}} {% endblock title %}
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">  
+{% endblock css %}
+{% block content %}
+    
+    <section class="section">
+      <div class="container-fluid">
+        <p><a href="{% url 'Store-home' %}">Home </a><span class="fas fa-chevron-right"></span><a href="{% url 'Store-category_products' categoryId %}"> Category </a><span class="fas fa-chevron-right"></span></span><a href="#">{{ product.product_name}}</a></p>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-10 col-md-8">
+            <div class="row">
+              <div class="product-details">
+              <div class="col-sm-10 col-md-6 padding">
+                <img src="{{product.imageURL}}" class="product-img">
+                <img src="{{product.imageURL}}" class="img-thumbnail" alt="top">
+                <img src="{{product.imageURL}}" class="img-thumbnail" alt="bottom">
+                <img src="{{product.imageURL}}" class="img-thumbnail" alt="side">
+              </div>
+              <div class="col-sm-10 col-md-6 padding">
+                <div class="product-name">
+                <h3>{{ product.product_name.upper }}</h3>
+                <p><strong>Tags: </strong>x, x, x </p>
+                <p>Rating: <br><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span></p>
+                  <h4 class="prices">&#8358;{{product.product_price}}</h4>
+                  {% if in_wishlist == True %}
+                  <a class="btn wishlist" href="{% url 'remove_from_wishlist' product.id %}"><span class="fas fa-heart-broken mr-1">Remove from wishlist</a>
+                  {% else %}  
+                    <a href="{% url 'add_to_wishlist' product.id %}" class="btn wishlist"><span class="fas fa-heart mr-1"></span>Add to Wishlist</a>
+                  {% endif %}
+                  <a class="btn cart update-cart" data-product_id={{product.id}} data-action="add"><span class="fas fa-shopping-cart mr-1"></span>Add to cart</a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+            <div class="col-sm-10 col-md-4">
+              <div class="vendor-details padding">
+              <h5>Delivery Information</h5>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium fuga fugiat, error quod molestias perferendis repudiandae</p>
+              <h5>Vendor Info</h5>
+              <p>Name: John Doe<br>location: Ibadan</p>
+              <h6>Rating:</h6> 
+              <span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span></p>
+              <h5>Reviews</h5>
+              <div class="container">
+                <div class="reviews">
+                <h6>Customer name</h6>
+                <p>Customer review</p>
+              </div>
+              <hr>
+              <div class="reviews">
+                <h6>Customer name</h6>
+                <p>Customer review</p>
+              </div>
+              <hr>
+            </div>
+          </div> 
+        </div>
+         
+        <div class="container-fluid roll">
+          <div class="col-sm-10 col-md-12">
+              <h4 style="color:white"><strong>Description</strong></h4>
+              <p style="color:white">{{ product.product_description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+
+  <!--Recently viewed-->
+  <!--<div class="container-fluid">
+  <div class="row roll">
+      <div class="col-12 d-inline-flex justify-content-between">
+        <p><strong>Related Items</strong></p>
+        <p><a href=""> View more <span class="fas fa-arrow-right"></span></a></p>
+      </div>
+      <div class="col-xs-6 col-md-2">
+        <a class="shopped-deals" href="">
+          <img src="{% static 'images/Underarmor.jpg' %}" alt="">
+          <p>Underarmor Shoes</p>
+          <p class="prices">#22,000</p>
+        </a>
+      </div>
+      <div class="col-xs-6 col-md-2">
+        <a class="shopped-deals" href="#">
+        <img src="{% static 'images/oxford-shoes.jpg' %}" alt="">
+        <p>Oxford Shoes</p>
+        <p class="prices">#15,000</p>
+        </a>
+      </div>
+      <div class="col-xs-6 col-md-2">
+        <a class="shopped-deals" href="">
+        <img src="{% static 'images/Underarmor.jpg' %}" alt="">
+        <p>Underarmor Shoes</p>
+        <p class="prices">#22,000</p>
+      </a>
+      </div>
+      <div class="col-xs-6 col-md-2">
+        <a  class="shopped-deals" href="#">
+        <img src="{% static 'images/oxford-shoes.jpg' %}" alt="">
+        <p>Oxford Shoes</p>
+        <p class="prices">#15,000</p>
+      </a>
+      </div>
+      <div class="col-xs-6 col-md-2">
+        <a class="shopped-deals" href="" >
+        <img src="{% static 'images/Underarmor.jpg' %}" alt="">
+        <p>Underarmor Shoes</p>
+        <p class="prices">#22,000</p>
+      </a>
+      </div>
+      <div class="col-xs-6 col-md-2">
+        <a class="shopped-deals" href="#">
+        <img src="{% static 'images/oxford-shoes.jpg' %}" alt="">
+        <p>Oxford Shoes</p>
+        <p class="prices">#15,000</p>
+      </a>
+      </div>
+</div>
+</div>-->
+
+ </section>
+{% endblock content %}
+
+{% block js %}
+<script src="{% static 'js/cart.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,59 @@
+<!--Navbar-->
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <div class="dropdown">
+                <button type="button" class="btn btn-outline-dark" data-toggle="dropdown"><span class="fa fa-navicon"></span>
+                </button>
+                <div class="dropdown-menu">
+                  {% for category in categories %}
+                    <a href="{% url 'Store-category_products' category.id %}" class="dropdown-item">{{ category }}</a>
+                  {% endfor %}
+                  <!-- <a class="dropdown-item" href="">Appliances</a>
+                  <a class="dropdown-item" href="">Clothing</a>
+                  <a class="dropdown-item" href="">Smartphones</a>
+                  <a class="dropdown-item" href="">Mobile accesories</a>
+                  <a class="dropdown-item" href="">Computers</a>
+                  <a class="dropdown-item" href="">Gaming</a> -->
+                </div>
+                
+            </div>
+
+            <a href="{% url 'Store-home' %}">e-commerce!</a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navibar">
+            <span class="fa fa-navicon"></span></button>
+            
+            <div class="collapse navbar-collapse justify-content-center" id="navibar">
+              <form class="form-inline"  method="GET" action="{% url 'Search-product'%}" id="searchform">
+                <input class="form-control" type="text" placeholder="What are you looking for today?" aria-label="Search" name="product_name">
+                <button class="btn long-search px-1" type="submit">Search</button>
+                
+              </form>
+
+                <ul class="navbar-nav">
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                          <a class="nav-link logged dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown"> <span class="fas fa-portrait"></span> Account</a>
+                          <div class="dropdown-menu arrow-top">
+                            <!--dropdown menu for account-->
+                            <a class="dropdown-item" href="{% url 'Store-wishlist'%}"><span class="far fa-bookmark"></span> Wishlist({{request.user.customer.wishlist.get_wishlist_total}})</a>
+                            <a class="dropdown-item" href="{% url 'account-info'%}"><span class="fas fa-portrait"></span> Account Info</a>
+                            <a class="dropdown-item" href="#"><span class="fas fa-truck"></span> Orders</a>
+                            
+                            <a class="dropdown-item" href="{% url 'logout' %}"><span class="fas fa-sign-out-alt"></span> Sign Out</a>
+                          </div>
+                        </li>
+                        
+                    {% else %}
+                        <li class="nav-item not-logged"><a class="nav-link" href="{% url 'login' %}"><span class="fas fa-portrait"></span> Sign In</a></li>
+                        <li class="nav-item not-logged"><a class="nav-link" href="{% url 'register' %}"><span class="fas fa-clipboard-list"></span> Register</a></li>
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Store-cart' %}"><span class="fas fa-shopping-cart"></span> Cart({{cart_items}})</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Store-contactus'%}"><span class="fas fa-phone-alt"></span> Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Store-help' %}"><span class="far fa-question-circle"></span> Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+   
+<!--Navbar-->

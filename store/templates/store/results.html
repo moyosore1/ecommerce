@@ -1,0 +1,91 @@
+{% extends 'store/base_template.html' %}
+{% load static %}
+
+{% block title%} Home {% endblock title %}
+{% block css %} <link rel="stylesheet" type="text/css" href="{% static 'css/search.css'%}">{% endblock css%}
+{% block content %}
+
+  <section class="section">
+
+        <div class="container-fluid text-center my-3">
+            <h2 class="search-heading">You Searched for: {{ search_query}}</h2>
+        </div>
+        <div class="row main-content">
+          <div class="col-md-3 col-lg-2 filter">
+                  <h4>Filters</h4>
+                  <hr>
+              <div class="container">
+                  <h5>Brand</h5>
+                  <input type="checkbox" name="" id=""> Brand 1 <br>
+                  <input type="checkbox" name="" id=""> Brand 2 <br>
+                  <input type="checkbox" name="" id=""> Brand 3 <br>
+                  <input type="checkbox" name="" id=""> Brand 4 <br>
+                  <input type="checkbox" name="" id=""> Brand 5 <br>
+              </div>
+              <div class="container">
+                  <h5>Price</h5>
+                  <input type="number" class="form-control-sm" name="" id="" placeholder="0"> - 
+                  <input type="text" class="form-control-sm"  name="" id="" placeholder="">
+              </div>
+              <div class="container">
+                  <h5>Size</h5>
+                  <input type="checkbox" name="" id=""> Size 1 <br>
+                  <input type="checkbox" name="" id=""> Size 2 <br>
+                  <input type="checkbox" name="" id=""> Size 3 <br>
+                  <input type="checkbox" name="" id=""> Size 4 <br>
+                  <input type="checkbox" name="" id=""> Size 5 <br>
+              </div>
+              <div class="container">
+                  <h5>Location</h5>
+                  <input type="checkbox" name="" id=""> Location 1 <br>
+                  <input type="checkbox" name="" id=""> Location 2 <br>
+                  <input type="checkbox" name="" id=""> Location 3 <br>
+                  <input type="checkbox" name="" id=""> Location 4 <br>
+                  <input type="checkbox" name="" id=""> Location 5 <br>
+              </div>
+              <div class="container">
+                  <h5>Condition</h5>
+                  <input type="checkbox" name="" id=""> Condition 1 <br>
+                  <input type="checkbox" name="" id=""> Condition 2 <br>
+                  <input type="checkbox" name="" id=""> Condition 3 <br>
+                  <input type="checkbox" name="" id=""> Condition 4 <br>
+                  <input type="checkbox" name="" id=""> Condition 5 <br>
+              </div>
+          </div>
+
+
+              <div class="col-md-9 col-lg-10 ">
+                  <div class="product">
+                      <div class="heading">
+                      <h4>Showing page 1 of 1</h4>
+                        <select name="" id="">
+                          <option value="">Most Viewed</option>
+                          <option value="">Highest Price</option>
+                          <option value="">Lowest Price</option>
+                          <option value="">Highest Reviwed</option>
+                        </select>
+                      </div>
+                  <hr>
+                  <div class="d-flex flex-wrap justify-content-center">
+                    {% for product in search.qs %}
+                    <div class="items">
+                      <a class="shopped-deals" href="product.html">
+                      <img src="{{ product.imageURL}}" alt="">
+                      <p><a href="{% url 'Product_details' product.id %}" style="color: black; text-decoration: none">{{ product.product_name}}</a></p>
+                      <p class="prices">${{ product.product_price|floatformat:2}}</p>
+                      </a>
+                      <a class="btn btn-primary update-cart" data-product_id={{product.id}} data-action="add" style="color: white">Add to cart</a>
+                      
+                    </div>
+                    {% endfor %}
+              </div>
+                  </div>
+              </div>
+        </div>
+  </section>
+
+{% endblock content %}
+
+{% block js %}
+<script src="{% static 'js/cart.js' %}"></script>
+{% endblock js %}

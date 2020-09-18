@@ -1,0 +1,70 @@
+.container-fluid > p {
+          margin: 1rem;
+          margin-bottom: 0;
+        } 
+
+       .container-fluid > p > a{
+          color:  rgb(40, 45, 50); 
+        }
+
+       .container-fluid > p > a:hover{
+          text-decoration: none;
+          opacity: 0.8;
+        }
+
+        .fa-chevron-right{
+          margin-right: 0.5rem;
+        }
+
+        .contact-form{
+            margin: 1rem 2rem;
+          padding: 3rem;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          background-color: white;
+     
+        }
+
+        .topic{
+            text-align: center;
+            margin: 1rem;
+        }
+
+        .contact-form .form-group{
+            padding: 1rem 0rem;
+        }
+
+       .contact-form .btn{
+           margin-top: 1.5rem;
+            background-color: rgb(40, 45, 50);
+            color: white;
+        }
+
+        .contact-form .btn:hover {
+          opacity: 0.8;
+        }
+
+        @media (max-width: 768px){
+        .contact-form{
+          margin: 1rem;
+          padding: 1.5rem;
+        }
+        .topic{
+            text-align: start;
+            margin: 0.5rem 2rem;
+        }
+        }
+
+        @media (max-width: 576px){
+        .contact-form{
+          margin: 0.25rem;
+          padding: 1rem;
+        }
+
+        .contact-form .form-group{
+            padding: 0.5rem 0rem;
+        }
+        .topic{
+            text-align: start;
+            margin: 0.5rem 1rem;
+        }
+        }

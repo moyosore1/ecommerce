@@ -1,0 +1,165 @@
+.container-fluid > p {
+  margin: 1rem;
+  margin-bottom: 0;
+} 
+
+.container-fluid > p > a{
+  color:  rgb(40, 45, 50); 
+}
+
+.container-fluid > p > a:hover{
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.fa-chevron-right{
+  margin-right: 0.5rem;
+}
+
+.padding{
+  padding: 1.5rem;
+  float: left;
+}
+
+.product-details , .vendor-details{
+  margin: 1rem 0.5rem 1rem 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
+}
+
+.product-img{
+  height: 25rem;
+  width: 25rem;
+  margin-bottom: 1rem;
+}
+
+.img-thumbnail{
+  height: 5rem;
+  width: 5rem;
+  margin-right: 0.5rem;
+  margin-bottom:1rem;
+
+}
+.product-name h3{
+  margin-top: 1.5rem;
+  font-weight: bold;
+}
+
+.product-name .fas, .product-name .fab{
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.product-name .btn {
+  color: white;
+  align-content: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.product-name .btn:hover{
+  text-decoration: none;
+}     
+
+.product-name .cart:hover{
+  background-color: rgba(40, 45, 50, 0.8);
+}
+
+.product-name .wishlist{
+  background-color:  rgb(153,136,119); 
+}
+
+.product-name .wishlist:hover{
+  background-color:  rgba(153,136,119, 0.8); 
+}
+
+.product-name .cart{
+  background-color: rgb(40, 45, 50);
+}
+
+.vendor-details h5{
+  font-weight: bold;
+}
+
+.vendor-details h6{
+  font-weight: bold;
+}
+
+.fa-star, .fa-shopping-cart-plus{
+  color: white;
+}
+
+
+@media (max-width: 768px){
+
+  .padding{
+  padding: 1.2rem;
+}
+
+.vendor-details{
+  max-height: 27rem;
+  overflow:auto;
+  margin-left: 0.25rem;
+}
+
+.product-details{
+  margin: 1rem;
+}
+
+.product-img{
+  height: 15rem;
+  width: 15rem;
+  margin: 1rem 0.5rem;
+}
+
+.img-thumbnail{
+  height: 3.5rem;
+  width: 3.5rem;
+  margin-right: 0.25rem;
+}
+.product-name h3{
+  margin-top: 1rem;
+}
+
+.product-name .fas, .product-name .fab{
+  font-size: 1.2rem;
+  margin-right: 0.25rem;
+}
+
+.product-name .btn {
+  margin-top: 0.5rem;
+}
+}
+
+@media (max-width: 576px) {
+  .padding{
+  padding: 1rem;
+}
+
+.vendor-details{
+  max-height: 20rem;
+}
+
+.product-details{
+  margin: 1rem;
+}
+
+.product-img{
+  height: 18rem;
+  width: 18rem;
+  margin: 0.25rem;
+}
+
+.img-thumbnail{
+  height: 4rem;
+  width: 4rem;
+  margin: 0.25rem;
+}
+.product-name h3{
+  margin-top: 0.5rem;
+}
+
+.product-name .fas, .product-name .fab{
+  font-size: 1rem;
+}
+}

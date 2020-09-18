@@ -1,0 +1,109 @@
+.main-content{
+         margin: 2rem;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          background-color: white;
+      }
+    
+.category{
+        text-transform: capitalize;
+    }
+
+    .container .form-control-sm{
+        width: 90%;
+        margin: 0.5rem 0;
+    }
+
+    .heading{
+        display: flex;
+        justify-content:space-around;
+    }
+   
+    .filter{
+        padding: 1rem;
+    }
+
+    .items img{
+        height: 10rem;
+        width: 10rem;
+        margin: 1rem;
+    }
+
+    .product{
+        padding: 1rem 2rem;
+        border-left: 1px solid grey;
+    }
+
+    .main-content .container{
+        max-height: 10rem;
+        margin: 1rem 0rem;
+        overflow:auto;
+    }
+
+    @media (max-width: 768px){
+
+      .main-content{
+         margin: 1.5rem;
+      }
+    .container .form-control-sm{
+        width: 90%;
+        margin: 0.25rem 0rem;  
+      }
+   
+    .filter{
+        padding: 0.5rem;
+    }
+
+    .items img{
+        height: 8rem;
+        width: 8rem;
+        margin: 0.5rem;
+    }
+
+    .product{
+        padding: 1rem;
+    }
+
+    .main-content .container{
+        max-height: 8rem;
+        margin: 1rem 0rem;
+        overflow:auto;
+    }
+    }
+
+    @media (max-width: 576px){
+      .main-content{
+         margin: 1rem;
+         padding: 0.5rem;
+      }
+      
+    .container .form-control-sm{
+        width: 80%;
+    }
+
+    .heading{
+        display: inline;
+        justify-content: flex-end; 
+    }
+   
+    .filter{
+        padding: 0.5rem;
+    }
+
+    .items img{
+        height: 6rem;
+        width: 6rem;
+        margin: 0.75rem;
+    }
+
+    .product{
+      padding: 0.5rem;
+      border: none;
+      }
+
+    .main-content .container{
+        max-height: 7rem;
+        margin: 1rem;
+        overflow:auto;
+    }
+
+    }

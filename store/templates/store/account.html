@@ -1,0 +1,63 @@
+{% extends 'store/base_template.html' %}
+{% load static %}
+
+{% block title%} e-commerce! - Account Details {% endblock title %}
+{% block css %} 
+  
+  <link rel="stylesheet" href="{% static 'css/account.css' %}">  
+{% endblock css%}
+
+{% block content %}
+	
+	 <section class="section">
+	       <div class="container-fluid">
+	            <p><a href="{% url 'Store-home' %}">Home </a><span class="fas fa-chevron-right"></span><a href=""> Account Details</a></p>
+	        </div>
+	      <div class="details">
+	        <div class="d-flex justify-content-between p-3">
+	             <h2>Account Details</h2>
+	             <a href="">Edit</a>
+	        </div>
+	        <div class="container-fluid">
+	            <p><strong class="attribute"> Username:</strong> {{ user.username}}</p>
+	        </div>
+	        <div class="container-fluid">
+	            <p><strong class="attrubute">E-mail Address:</strong> {{ user.email }}</p>
+	        </div>
+	        <!--<div class="container-fluid">
+	            <p><strong class="attrubute">Phone Number:</strong> +234 80 000 000</p>
+	        </div>
+	        <div class="container-fluid">
+	            <p><strong class="attrubute">Address:</strong> Ibadan, Nigeria</p>
+	        </div>
+	    -->
+	    <!--
+	        <form class="edit-details" action="">
+	            <h2>Edit Details</h2>
+	            <div class="form-group">
+	            <label for="phone">New Phone:</label>
+	            <input class="form-control mr-3" type="tel" name="" id="phone" value="+234 ">
+	        </div>
+	            <div class="form-group form-inline">
+	                <label for="password">New Password:</label>
+	                <input class="form-control mx-3" type="password" name="" id="password" placeholder="">
+	        
+	                <label for="rep-password">Confirm Password:</label>
+	                <input class="form-control mx-3" type="password" name="" id="rep-password" placeholder="">
+	            </div>
+	            <div class="form-group">
+	                <label for="address">New Address:</label>
+	                <textarea class="form-control" rows="5" id="address"></textarea>
+
+	           <button class="btn" type="submit">Submit</button>
+	            
+	        </div>
+	        </form>
+
+	    -->
+	    </div>
+    </section>
+
+
+
+{% endblock content %}

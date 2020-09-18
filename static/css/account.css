@@ -1,0 +1,98 @@
+.container-fluid > p {
+  margin: 1rem;
+  margin-bottom: 0;
+} 
+
+.container-fluid > p > a{
+  color:  rgb(40, 45, 50); 
+}
+
+.container-fluid > p > a:hover{
+  text-decoration: none;
+  color:  rgba(40, 45, 50, 0.8);
+}
+
+.fa-chevron-right{
+  margin-right: 0.5rem;
+}
+
+.details{
+  margin: 1rem 2rem;
+  padding: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
+}
+
+.details .container-fluid{
+    padding-bottom: 0.5rem;
+}
+
+.details .container-fluid strong{
+    font-size: 1.2rem;
+}
+
+.edit-details{
+    margin: 2rem;
+}
+
+.edit-details .form-group{
+    padding: 1rem 0rem;
+}
+
+.edit-details .form-inline .form-control{
+    width: 35%;
+}
+
+.edit-details .form-group .btn{
+    background-color: rgb(40, 45, 50);
+    margin-top: 1.5rem;
+    color: white;
+}
+
+.edit-details .form-group .btn:hover{
+  opacity: 0.8;
+}
+
+@media (max-width: 992px){
+    .edit-details .form-inline label{
+    margin: 1rem 0rem 0.5rem 0;
+}
+
+.edit-details .form-inline .form-control{
+    width: 100%;
+}   
+}
+
+@media (max-width: 768px) {
+
+    .container-fluid > p {
+  margin: 0.5rem;
+} 
+
+.details{
+  margin: 1rem;
+  padding: 1rem;
+ }
+
+.edit-details{
+    margin: 1.5rem;
+}
+
+}
+@media (max-width: 576px) {
+
+
+.details .container-fluid strong{
+    font-size: 1.1rem;
+    display: block;
+}
+
+.edit-details{
+    margin: 1rem;
+}
+
+.edit-details .form-inline .form-control{
+    width: 100%;
+}
+    
+}

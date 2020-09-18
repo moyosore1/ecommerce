@@ -1,0 +1,57 @@
+{% extends 'store/base_template.html' %}
+{% load static %}
+{% block title%} e-commerce! - Cart{% endblock title %}
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+{% endblock css %}
+{% block content %}
+    <h2>Cart</h2>
+      
+      
+      
+    <!--Products section-->
+    <section class="section">
+        {% if cart_items > 0 %}
+          <a class="btn btn-primary btn-md"  href="{% url 'Store-checkout'%}">Checkout</a>
+          <a class="btn btn-primary btn-md" href="{% url 'Store-home' %}" class="text-right">Continue shopping</a>
+          <h5 style="color: white" class="text-right">Total : ${{ order.get_cart_total }}</h5>
+          
+            {% for item in items %}
+            <div class="cart-item">
+            <div class="flex-item">
+                <img src="{{ item.product.imageURL}}" class="product-img" alt="">
+            </div>
+            <div class="flex-item">
+                <h3>{{ item.product.product_name }}</h3>
+                <h4 class="prices">${{ item.get_total|floatformat:2 }}</h4>
+                <div class="add-remove">
+                <a href="" class="remove update-cart" data-action="remove" data-product_id="{{item.product.id}}"> - </a>
+                <p> {{item.quantity}} </p>
+                <a href="" class="add update-cart" data-action="add" data-product_id="{{item.product.id}}"> + </a>
+              </div>
+            </div>
+            </div>
+            {% endfor %}
+        
+          
+
+        {% else %}
+            <div class="jumbotron">
+              <h1 class="display-4">Hello, {{ request.user.username.title}}!</h1>
+              <p class="lead">Your cart is currently empty. View some of our products!</p>
+              <hr class="my-4">
+              <a class="btn btn-primary btn-lg" href="{% url 'Store-home'%}" role="button">Explore</a>
+            </div>  
+        {% endif %}
+        
+  </section>
+
+    
+
+
+{% endblock content %}
+
+
+{% block js %}
+<script src="{% static 'js/cart.js' %}"></script>
+{% endblock js %}

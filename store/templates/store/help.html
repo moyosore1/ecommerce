@@ -1,0 +1,54 @@
+{% extends 'store/base_template.html' %}
+{% load static %}
+
+{% block title%} e-commerce! - Help {% endblock title %}
+{% block css %} 
+  
+  <link rel="stylesheet" href="{% static 'css/help.css' %}">  
+{% endblock css%}
+
+{% block content %}
+	<!--Sign section-->
+    <section class="section">
+        <div class="container-fluid">
+            <p><a href="index.html">Home </a><span class="fas fa-chevron-right"></span> Help</p>
+        </div>
+   
+            <div class="d-flex">
+                 <h2>Help</h2>
+            </div>
+        <div class="questions">
+            <div class="container-fluid">
+                <h4 class="question">What?</h4>
+                <p class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Officia id harum eos nisi consequatur nemo.
+                     Maxime reiciendis inventore eum eaque odio nihil labore, 
+                    excepturi architecto est voluptatem necessitatibus dolor autem?</p>
+            </div>
+
+            <div class="container-fluid">
+                <h4 class="question">How?</h4>
+                <p class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Officia id harum eos nisi consequatur nemo.
+                     Maxime reiciendis inventore eum eaque odio nihil labore, 
+                    excepturi architecto est voluptatem necessitatibus dolor autem?</p>
+            </div>
+
+            <div class="container-fluid">
+                <h4 class="question">When?</h4>
+                <p class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Officia id harum eos nisi consequatur nemo.
+                     Maxime reiciendis inventore eum eaque odio nihil labore, 
+                    excepturi architecto est voluptatem necessitatibus dolor autem?</p>
+            </div>
+
+            <div class="container-fluid">
+                <h4 class="question">Where?</h4>
+                <p class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Officia id harum eos nisi consequatur nemo.
+                     Maxime reiciendis inventore eum eaque odio nihil labore, 
+                    excepturi architecto est voluptatem necessitatibus dolor autem?</p>
+            </div>
+    </div>
+    </section>
+{% endblock content %}

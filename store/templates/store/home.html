@@ -1,0 +1,105 @@
+{% extends 'store/base_template.html' %}
+{% load static %}
+
+{% block title%} e-commerce! - Home {% endblock title %}
+{% block css %} 
+  
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">  
+
+{% endblock css%}
+{% block content %}
+        
+        {% include 'store/carousel.html' %}
+
+        <!--Products section-->
+    <section class="section">
+      
+  <!--Today's deals-->
+      <div class= container-fluid>
+    <div class="row roll">
+      <div class="col-12 d-inline-flex justify-content-between">
+        <p><strong>Today's Deals</strong></p>
+        <p><a href="#"> View more <span class="fas fa-arrow-right"></span></a></p>
+      </div>
+      {% for product in products %}
+        <div class="col-xs-6 col-md-2">
+        <a class="shopped-deals" href="{% url 'Product_details' product.id %}">
+          <img src="{{ product.imageURL }}" alt="">
+          <p>{{ product.product_name}}</p>
+          <p class="prices">${{ product.product_price}}</p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+      </div>
+
+  <!--Top Products-->
+<div class="container-fluid">
+    <div class="row roll">
+      <div class="col-12 d-inline-flex justify-content-between">
+        <p><strong>Most Shopped</strong></p>
+          <p><a href="#"> View more <span class="fas fa-arrow-right"></span></a></p>
+      </div>
+      {% for product in most %}
+        <div class="col-xs-6 col-md-2">
+        <a class="shopped-deals" href="{% url 'Product_details' product.id %}">
+          <img src="{{ product.imageURL }}" alt="">
+          <p>{{ product.product_name}}</p>
+          <p class="prices">${{ product.product_price}}</p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!--Popular Categories-->
+  <div class="container-fluid">
+    <div class="row roll">
+      <div class="col-12 d-inline-flex justify-content-between">
+        <p><strong>Popular Categories</strong></p>
+          <p><a href="#"> View more <span class="fas fa-arrow-right"></span></a></p>
+
+      </div>
+      <div class="col-2">
+
+      </div>
+      <div class="col-2">
+
+      </div>
+      <div class="col-2">
+
+      </div>
+      <div class="col-2">
+
+      </div>
+      <div class="col-2">
+
+      </div>
+      <div class="col-2">
+        
+      </div>
+    </div>
+  </div>
+
+  <!--Recently viewed-->
+  <div class="container-fluid">
+    <div class="row roll">
+      <div class="col-12 d-inline-flex justify-content-between">
+        <p><strong>Recently Viewed</strong></p>
+        <p><a href="#"> View more <span class="fas fa-arrow-right"></span></a></p>
+      </div>
+
+
+    </div>
+  </div>
+
+  </section>
+
+{% endblock content %}
+
+{% block js %}
+<script src="{% static 'js/cart.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>    
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+{% endblock js %}

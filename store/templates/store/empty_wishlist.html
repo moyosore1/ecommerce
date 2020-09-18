@@ -1,0 +1,15 @@
+{% extends 'store/base_template.html' %}
+{% load static %}
+
+{% block title%} {{request.user.username.title}}'s Wishlist {% endblock title %}
+{% block content %}
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, {{ request.user.username.title}}!</h1>
+      <p class="lead">Your wishlist is currently empty. View some of our products!</p>
+      <hr class="my-4">
+      <a class="btn btn-primary btn-lg" href="{% url 'Store-home'%}" role="button">Explore</a>
+</div>
+
+
+{% endblock content %}
+

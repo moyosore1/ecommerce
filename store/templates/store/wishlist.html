@@ -1,0 +1,68 @@
+{% extends 'store/base_template.html' %}
+{% load static %}
+
+{% block title%} {{request.user.username.title}}'s Wishlist {% endblock title %}
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/wishlist.css' %}">
+{% endblock css %}
+{% block content %}
+    <h2>Wishlist</h2>
+
+        <!--Products section-->
+    <section class="section">
+        {% for product in wishlist_products %}
+        <div class="cart-item">
+            <div class="flex-item">
+                <img src="{{ product.imageURL }}" class="product-img" alt="">
+            </div>
+            <div class="flex-item">
+                <a href="{% url 'Product_details' product.id %}" style="color: black; text-decoration: none"><h3>{{ product.product_name}}</h3></a>
+                <h4 class="prices">&#8358;{{ product.product_price|floatformat:2}}</h4>
+                <a class="btn btn-success" id="update-cart" data-product_id={{product.id}} data-action="add" href="{% url 'move_to_cart' product.id %}">Buy Now</a>
+                <a href="{% url 'remove_from_wishlist' product.id %}" class="btn btn-danger">Remove</a>
+            </div>
+        </div>
+        {% endfor %}
+        
+  </section>
+
+{% endblock content %}
+
+{% block js %}
+<script type="text/javascript">
+  let updateCartBtn = document.getElementById('update-cart')
+  updateCartBtn.addEventListener('click', function(){
+        productId = this.dataset.product_id
+        action = this.dataset.action
+        if(user != 'AnonymousUser'){
+            updateUserCart(productId, action)
+        }else{
+          window.location.href = "{% url 'Store-home' %}"
+        }
+
+  });
+
+  function updateUserCart(productId, action){
+    url = '/update-cart/'
+
+    fetch(url, {
+        'method': 'POST',
+        'headers':{
+            'Content-Type':'application/json',
+            'X-CSRFToken': csrftoken,
+        },
+        body: JSON.stringify({'productId' : productId,'action' : action})
+     })
+     .then((response)=>{
+       return response.json()
+     })
+
+     .then((data)=>{
+        
+     })
+
+}
+
+</script>
+
+{% endblock js %}

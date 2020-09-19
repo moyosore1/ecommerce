@@ -19,7 +19,7 @@ def shop(request):
     categories = Category.objects.all()
     products = Product.objects.all().order_by('?')[:6]
     productsMostShopped = Product.objects.all().order_by('?')[:6]
-    print(products)    
+    
     
     context = {
         'products': products,
@@ -161,9 +161,12 @@ def product_details(request, pk):
     product = Product.objects.get(id=pk)
     data = cartData(request)
     categories = Category.objects.all()
-    wishlist = request.user.customer.wishlist
+    in_wishlist = False
+    if request.user.is_authenticated:
+        wishlist = request.user.customer.wishlist
+        in_wishlist = wishlist.check_if_product_in_wishlist(product)
+    
     productCategoryId = product.product_category.id
-    in_wishlist = wishlist.check_if_product_in_wishlist(product)
     context = {
         'product': product,
         'categories': categories,

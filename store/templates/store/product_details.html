@@ -29,10 +29,12 @@
                 <p><strong>Tags: </strong>x, x, x </p>
                 <p>Rating: <br><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span><span class="fas fa-star"></span></p>
                   <h4 class="prices">&#8358;{{product.product_price}}</h4>
+                  {% if request.user.is_authenticated %}
                   {% if in_wishlist == True %}
                   <a class="btn wishlist" href="{% url 'remove_from_wishlist' product.id %}"><span class="fas fa-heart-broken mr-1">Remove from wishlist</a>
                   {% else %}  
                     <a href="{% url 'add_to_wishlist' product.id %}" class="btn wishlist"><span class="fas fa-heart mr-1"></span>Add to Wishlist</a>
+                  {% endif %}
                   {% endif %}
                   <a class="btn cart update-cart" data-product_id={{product.id}} data-action="add"><span class="fas fa-shopping-cart mr-1"></span>Add to cart</a>
               </div>

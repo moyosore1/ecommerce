@@ -9,7 +9,7 @@ from .decorators import guest
 
 @guest
 def register_user(request):
-    form = UserRegisterForm()
+    
 
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -19,7 +19,8 @@ def register_user(request):
             username = form.cleaned_data.get('username')
             messages.success(request, 'Successfully created account for ', username)
             return redirect('login')
-
+    else:
+        form = UserRegisterForm()    
     return render(request, 'user/register.html', {'form': form})
 
 
